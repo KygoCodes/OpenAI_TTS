@@ -1,0 +1,15 @@
+import openai #pip install openai or pip install openai --update
+
+API_KEY = "YOUR_OPEN_AI_KEY"
+
+client = openai.OpenAI(api_key=API_KEY)
+
+speech_file_path = "speech.mp3"
+
+response = client.audio.speech.create(
+    model="tts-1-hd",
+    voice="onyx", #choose name of AI speech Assistant
+    input="INSERT_INPUT_HERE"
+)
+response.stream_to_file(speech_file_path)
+
